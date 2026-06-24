@@ -1,0 +1,7 @@
+<svg width="150" height="33" viewBox="0 0 150 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- JS Logo -->
+  <rect x="2" y="4" width="25" height="25" rx="4" fill="#FDFDF0"/>
+  <text x="7" y="21" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="900" fill="#3B442F">JS</text>
+  <!-- Tech Name -->
+  <text x="40" y="22" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="600" fill="#FDFDF0" letter-spacing="0.5">JavaScript</text>
+</svg>

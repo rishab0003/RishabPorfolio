@@ -1,0 +1,251 @@
+/* CSS Overrides for Inline Project Card Image Details Overlay */
+
+.portfolio-card {
+  position: relative !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  background-color: var(--neutral--white-400, #fcfcf9) !important;
+  border: 1px solid rgba(59, 68, 47, 0.1) !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important;
+  cursor: pointer !important;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease !important;
+  height: 24.5rem !important; /* Keep all project cards exactly uniform in height */
+}
+
+/* Remove Hover Animations (keep cards completely flat) */
+.portfolio-card:hover {
+  transform: none !important;
+  box-shadow: 0 6px 24px rgba(59, 68, 47, 0.08) !important;
+  border-color: rgba(59, 68, 47, 0.25) !important;
+}
+
+.portfolio-card .portfolio-image {
+  transform: none !important;
+  transition: none !important;
+}
+
+/* Image Container */
+.portfolio-image-wrapper {
+  width: 100% !important;
+  height: 18rem !important; /* Set standard height for the image area */
+  overflow: hidden !important;
+  position: relative !important;
+  border-radius: 12px 12px 0 0 !important;
+}
+
+/* Details Overlay Injected directly inside the Image Wrapper */
+.portfolio-card-details {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background-color: rgba(59, 68, 47, 0.98) !important; /* Olive green theme cover */
+  z-index: 10 !important;
+  padding: 1.25rem !important;
+  box-sizing: border-box !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  justify-content: flex-start !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: translateY(10%) !important;
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Reveal Details on click/expand trigger */
+.portfolio-card.is-expanded .portfolio-card-details {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transform: translateY(0) !important;
+}
+
+/* Scroll area for details text */
+.portfolio-card-scroll-area {
+  flex: 1 !important;
+  overflow-y: auto !important;
+  margin-bottom: 0.75rem !important;
+  padding-right: 4px !important;
+}
+
+/* Custom Scrollbar for scroll area */
+.portfolio-card-scroll-area::-webkit-scrollbar {
+  width: 4px;
+}
+.portfolio-card-scroll-area::-webkit-scrollbar-thumb {
+  background: rgba(250, 255, 121, 0.3);
+  border-radius: 2px;
+}
+.portfolio-card-scroll-area::-webkit-scrollbar-thumb:hover {
+  background: var(--brand--yellow, #faff79);
+}
+
+.portfolio-card-desc {
+  font-size: 0.88rem !important;
+  line-height: 1.5 !important;
+  color: rgba(232, 232, 209, 0.9) !important; /* Beige text */
+  margin: 0 0 1rem 0 !important;
+}
+
+.portfolio-card-features-title {
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.8px !important;
+  color: var(--brand--yellow, #faff79) !important;
+  margin-bottom: 0.5rem !important;
+  font-family: 'JetBrains Mono', monospace !important;
+}
+
+.portfolio-card-features {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 0 1rem 0 !important;
+}
+
+.portfolio-card-features li {
+  position: relative !important;
+  padding-left: 1.1rem !important;
+  margin-bottom: 0.4rem !important;
+  font-size: 0.82rem !important;
+  line-height: 1.4 !important;
+  color: rgba(232, 232, 209, 0.85) !important;
+}
+
+.portfolio-card-features li::before {
+  content: "→" !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
+  color: var(--brand--yellow, #faff79) !important;
+  font-weight: bold !important;
+}
+
+.portfolio-card-tags {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 4px !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.portfolio-card-tag {
+  font-size: 0.65rem !important;
+  font-weight: 600 !important;
+  padding: 3px 6px !important;
+  border-radius: 3px !important;
+  background-color: rgba(232, 232, 209, 0.1) !important;
+  border: 1px solid rgba(232, 232, 209, 0.15) !important;
+  color: var(--neutral--white-200, #e8e8d1) !important;
+}
+
+.portfolio-card-actions {
+  display: flex !important;
+  gap: 8px !important;
+  margin-top: auto !important;
+}
+
+.portfolio-card-btn {
+  flex: 1 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 8px 12px !important;
+  font-size: 0.82rem !important;
+  font-weight: 600 !important;
+  border-radius: 6px !important;
+  text-decoration: none !important;
+  box-sizing: border-box !important;
+  text-align: center;
+}
+
+.portfolio-card-btn.is-primary {
+  background-color: var(--brand--yellow, #faff79) !important;
+  color: var(--neutral--black-800, #3b442f) !important;
+  border: 1px solid var(--brand--yellow, #faff79) !important;
+}
+
+.portfolio-card-btn.is-primary:hover {
+  background-color: var(--neutral--white-200, #e8e8d1) !important;
+  color: var(--neutral--black-800, #3b442f) !important;
+  border-color: var(--neutral--white-200, #e8e8d1) !important;
+}
+
+/* Static Content area below the image */
+.portfolio-card-content {
+  position: static !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  padding: 0.75rem 1rem !important;
+  background-color: transparent !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  justify-content: flex-start !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+}
+
+.portfolio-card-content h6.heading-style-h6 {
+  font-family: var(--font--heading-font, inherit) !important;
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  color: var(--neutral--black-900, #120f17) !important;
+  margin: 0 0 0.25rem 0 !important;
+  white-space: normal !important;
+  overflow: hidden !important;
+  overflow-wrap: anywhere !important;
+  display: -webkit-box !important;
+  -webkit-box-orient: vertical !important;
+  -webkit-line-clamp: 2 !important;
+  line-clamp: 2 !important;
+}
+
+.portfolio-card-content .text-size-regular {
+  font-size: 0.78rem !important;
+  color: var(--neutral--black-600, #3b442f) !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-weight: 500 !important;
+  margin-bottom: 0 !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+  line-height: 1.35 !important;
+}
+
+/* Indicator */
+.portfolio-card-indicator {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-top: 0.5rem !important;
+  font-size: 0.7rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  color: var(--neutral--black-800, #3b442f) !important;
+  opacity: 0.65 !important;
+}
+
+.portfolio-card:hover .portfolio-card-indicator {
+  opacity: 1 !important;
+}
+
+.portfolio-card-indicator::after {
+  content: " ▾" !important;
+  font-size: 0.8rem !important;
+}
+
+.portfolio-card.is-expanded .portfolio-card-indicator::after {
+  content: " ▴" !important;
+}
+
+/* Responsive Grid Columns */
+@media (max-width: 767px) {
+  .portfolio-collection-list {
+    grid-template-columns: 1fr !important;
+    grid-row-gap: 2rem !important;
+  }
+}

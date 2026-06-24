@@ -1,0 +1,9 @@
+<svg width="115" height="33" viewBox="0 0 115 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Database Cylinder Logo -->
+  <g transform="translate(4, 4) scale(0.85)">
+    <ellipse cx="12" cy="6" rx="8" ry="3" stroke="#FDFDF0" stroke-width="2" fill="none"/>
+    <path d="M4 6V13C4 14.66 7.58 16 12 16C16.42 16 20 14.66 20 13V6" stroke="#FDFDF0" stroke-width="2" fill="none"/>
+    <path d="M4 13V20C4 21.66 7.58 23 12 23C16.42 23 20 21.66 20 20V13" stroke="#FDFDF0" stroke-width="2" fill="none"/>
+  </g>
+  <text x="34" y="22" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="600" fill="#FDFDF0" letter-spacing="0.5">SQL</text>
+</svg>

@@ -1,0 +1,6 @@
+<svg width="130" height="33" viewBox="0 0 130 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Node Hexagon Logo -->
+  <path d="M14 6L24 11.8V21.2L14 27L4 21.2V11.8L14 6Z" stroke="#FDFDF0" stroke-width="2.5" fill="none"/>
+  <path d="M14 11V22" stroke="#FDFDF0" stroke-width="2"/>
+  <text x="36" y="22" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="600" fill="#FDFDF0" letter-spacing="0.5">Node.js</text>
+</svg>

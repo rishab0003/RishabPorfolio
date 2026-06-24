@@ -1,0 +1,200 @@
+/* Project Details Drawer Style Definitions (Restored) */
+
+.project-drawer {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 9999 !important;
+}
+
+.project-drawer-overlay {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background-color: #000000 !important;
+  opacity: 0.5;
+  cursor: pointer !important;
+}
+
+.project-drawer-content {
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+  width: 480px !important;
+  max-width: 100% !important;
+  height: 100% !important;
+  background-color: var(--neutral--white-200, #e8e8d1) !important; /* Beige theme matches PillNav */
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  box-sizing: border-box !important;
+  padding: 2.5rem 2rem !important;
+}
+
+/* Dark theme toggle compatibility */
+@media (prefers-color-scheme: dark) {
+  .project-drawer-content {
+    background-color: #1a1e15 !important; /* Dark olive option if preferred */
+    color: var(--neutral--white-200, #e8e8d1) !important;
+  }
+}
+
+.project-drawer-close {
+  position: absolute !important;
+  top: 1.5rem !important;
+  left: 1.5rem !important;
+  background: none !important;
+  border: none !important;
+  font-size: 2.25rem !important;
+  line-height: 1 !important;
+  color: var(--neutral--black-800, #3b442f) !important;
+  cursor: pointer !important;
+  padding: 0 !important;
+  transition: transform 0.2s ease !important;
+}
+
+.project-drawer-close:hover {
+  transform: scale(1.1) !important;
+  color: var(--brand--red, #ff4c4c) !important;
+}
+
+.project-drawer-scroll {
+  flex: 1 !important;
+  overflow-y: auto !important;
+  margin-top: 1.5rem !important;
+  padding-right: 8px !important;
+}
+
+.project-drawer-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.project-drawer-scroll::-webkit-scrollbar-thumb {
+  background: rgba(59, 68, 47, 0.2);
+  border-radius: 3px;
+}
+
+.project-drawer-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--neutral--black-800, #3b442f);
+}
+
+.project-drawer-title {
+  font-family: var(--font--heading-font, inherit) !important;
+  font-size: 2rem !important;
+  font-weight: 700 !important;
+  color: var(--neutral--black-900, #120f17) !important;
+  margin: 0 0 0.5rem 0 !important;
+  line-height: 1.2 !important;
+}
+
+.project-drawer-subtitle {
+  font-size: 0.95rem !important;
+  font-weight: 600 !important;
+  color: var(--neutral--black-600, #3b442f) !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  margin-bottom: 1.5rem !important;
+}
+
+.project-drawer-desc {
+  font-size: 1rem !important;
+  line-height: 1.6 !important;
+  color: var(--neutral--black-800, #3b442f) !important;
+  margin-bottom: 2rem !important;
+}
+
+.project-drawer-features-section {
+  margin-bottom: 2rem !important;
+}
+
+.project-drawer-features-title {
+  font-size: 0.9rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.8px !important;
+  color: var(--neutral--black-900, #120f17) !important;
+  margin-bottom: 0.75rem !important;
+}
+
+.project-drawer-features {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.project-drawer-features li {
+  position: relative !important;
+  padding-left: 1.25rem !important;
+  margin-bottom: 0.6rem !important;
+  font-size: 0.92rem !important;
+  line-height: 1.5 !important;
+  color: var(--neutral--black-800, #3b442f) !important;
+}
+
+.project-drawer-features li::before {
+  content: "→" !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
+  color: var(--neutral--black-800, #3b442f) !important;
+  font-weight: bold !important;
+}
+
+.project-drawer-tags {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 6px !important;
+  margin-bottom: 2.5rem !important;
+}
+
+.project-drawer-tag {
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  padding: 4px 8px !important;
+  border-radius: 4px !important;
+  background-color: rgba(59, 68, 47, 0.06) !important;
+  border: 1px solid rgba(59, 68, 47, 0.1) !important;
+  color: var(--neutral--black-800, #3b442f) !important;
+}
+
+.project-drawer-actions {
+  display: flex !important;
+  gap: 12px !important;
+  margin-top: auto !important;
+}
+
+.project-drawer-btn {
+  flex: 1 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 12px 24px !important;
+  font-size: 0.95rem !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  text-decoration: none !important;
+  box-sizing: border-box !important;
+  text-align: center;
+  transition: background-color 0.2s ease, border-color 0.2s ease !important;
+}
+
+.project-drawer-btn.is-primary {
+  background-color: var(--neutral--black-800, #3b442f) !important;
+  color: var(--neutral--white-200, #e8e8d1) !important;
+  border: 1px solid var(--neutral--black-800, #3b442f) !important;
+}
+
+.project-drawer-btn.is-primary:hover {
+  background-color: var(--neutral--black-900, #120f17) !important;
+  border-color: var(--neutral--black-900, #120f17) !important;
+}
+
+@media (max-width: 479px) {
+  .project-drawer-content {
+    width: 100% !important;
+    padding: 2.5rem 1.25rem !important;
+  }
+}
