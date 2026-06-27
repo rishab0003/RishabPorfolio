@@ -1,0 +1,441 @@
+/* ══════════════════════════════════════════════════════════════════
+   WHAT I BUILD & TECH FOCUS SECTIONS (LIGHT THEME BLENDED)
+   Blends with the project palette: Cream (#e8e8d1) & Olive (#3b442f)
+   ══════════════════════════════════════════════════════════════════ */
+
+.eco-section {
+  width: 100%;
+  padding: 7rem 0;
+  background-color: #e8e8d1; /* Seamlessly matches the project's background */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Common Section Headers */
+.eco-header {
+  margin-bottom: 4rem;
+  text-align: left;
+  position: relative;
+  z-index: 10;
+}
+
+.eco-header h2 {
+  font-family: "Mona Sans", sans-serif;
+  color: #3b442f; /* Dark olive title */
+  font-size: clamp(2.25rem, 4vw, 3rem);
+  line-height: 1.15;
+  margin-bottom: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.eco-header p {
+  font-family: "Satoshi", sans-serif;
+  color: #5c664e; /* Muted olive subtitle */
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  max-width: 44rem;
+  margin: 0;
+  line-height: 1.6;
+}
+
+
+/* ── WHAT I BUILD GRID ───────────────────────────────────────────── */
+.build-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+  position: relative;
+  z-index: 10;
+}
+
+@media (max-width: 1024px) {
+  .build-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 639px) {
+  .build-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
+/* Premium Light-Theme Glassmorphism Cards */
+.build-card {
+  background: rgba(255, 255, 255, 0.25); /* More transparent to let the grainient show through beautifully */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(59, 68, 47, 0.12); /* Delicate olive border */
+  border-radius: 24px;
+  padding: 2.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.6s ease,
+              background-color 0.6s ease;
+}
+
+/* Gradient Borders on Hover (Olive to Sage) */
+.build-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  padding: 1.5px;
+  background: linear-gradient(135deg, #3b442f, #bbcfa6);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.build-card:hover {
+  transform: translateY(-5px) scale(1.015);
+  border-color: transparent;
+  background-color: rgba(255, 255, 255, 0.45); /* Solidifies slightly on hover */
+  box-shadow:
+    0 0 0 1.5px rgba(59, 68, 47, 0.22),
+    0 20px 48px rgba(59, 68, 47, 0.14);
+}
+
+
+.build-card:hover::before {
+  opacity: 1;
+}
+
+/* Embedded dynamic colorful background */
+.build-card .grainient-bg-mount {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0.65;
+  transition: opacity 0.4s ease;
+}
+
+.build-card:hover .grainient-bg-mount {
+  opacity: 0.95;
+}
+
+/* Card Elements */
+.build-card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  position: relative;
+  z-index: 5;
+}
+
+.build-card-icon {
+  font-size: 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(59, 68, 47, 0.1);
+  border-radius: 16px;
+  transition: transform 0.4s ease, background 0.4s ease, border-color 0.4s ease;
+}
+
+.build-card:hover .build-card-icon {
+  transform: scale(1.1) rotate(5deg);
+  background: rgba(255, 255, 255, 0.7);
+  border-color: rgba(59, 68, 47, 0.2);
+}
+
+.build-card-title {
+  font-family: "Mona Sans", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #3b442f; /* Dark olive */
+  margin: 0;
+}
+
+.build-card-desc {
+  font-family: "Satoshi", sans-serif;
+  font-size: 0.92rem;
+  color: #3b442f; /* Darker olive for excellent readability on colored backgrounds */
+  line-height: 1.65;
+  margin: 0 0 2rem 0;
+  flex-grow: 1;
+  position: relative;
+  z-index: 5;
+}
+
+/* Tech Badges Container */
+.build-tech-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: auto;
+  position: relative;
+  z-index: 5;
+}
+
+
+.build-tech-badge {
+  font-family: "Mona Sans", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.25rem 0.75rem;
+  background: rgba(59, 68, 47, 0.04);
+  color: #3b442f;
+  border-radius: 99px;
+  border: 1px solid rgba(59, 68, 47, 0.1);
+  transition: all 0.3s ease;
+}
+
+.build-card:hover .build-tech-badge {
+  border-color: rgba(59, 68, 47, 0.2);
+  color: #3b442f;
+  background: rgba(59, 68, 47, 0.06);
+}
+
+/* ── MICRO-ANIMATIONS TARGETS ───────────────────────────────────── */
+.build-anim-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  overflow: hidden;
+  border-radius: 24px;
+}
+
+.build-card:hover .build-anim-overlay {
+  opacity: 0.25; /* Blends nicely in light mode */
+}
+
+/* AI Neural net glow */
+.anim-neural-nodes {
+  width: 100%;
+  height: 100%;
+}
+
+/* Full stack API pulse */
+.anim-api-pulses {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  padding: 0 2rem;
+}
+
+/* Data science charts rising */
+.anim-charts-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 1rem;
+  height: 100%;
+  padding-bottom: 2rem;
+}
+
+/* Cloud deployment container */
+.anim-cloud-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+/* Backend request loop */
+.anim-backend-loop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+/* Automations rotating gears */
+.anim-gears-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  height: 100%;
+}
+
+
+/* ── TECH FOCUS GRID ─────────────────────────────────────────────── */
+.focus-grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+  position: relative;
+  z-index: 10;
+}
+
+/* Spec Matrix Bento Grid */
+.focus-bento-layout {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1.75rem;
+}
+
+/* Bento spans: alternating sizes for visual balance */
+.focus-card.span-4 { grid-column: span 4; }
+.focus-card.span-2 { grid-column: span 2; }
+.focus-card.span-3 { grid-column: span 3; }
+
+@media (max-width: 1024px) {
+  .focus-bento-layout {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .focus-card.span-4,
+  .focus-card.span-2,
+  .focus-card.span-3 {
+    grid-column: span 1;
+  }
+}
+@media (max-width: 639px) {
+  .focus-bento-layout {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .focus-card.span-4,
+  .focus-card.span-2,
+  .focus-card.span-3 {
+    grid-column: auto;
+  }
+}
+
+.focus-card {
+  background: rgba(255, 255, 255, 0.25); /* Translucent white glass */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(59, 68, 47, 0.12);
+  border-radius: 24px;
+  padding: 2.25rem 2rem;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.6s ease,
+              background-color 0.6s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+}
+
+/* Individual card hover gradient borders (Personality colors) */
+.focus-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  padding: 1.5px;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.focus-card.glow-ai::before { background: linear-gradient(135deg, #e3eb60, #a1b025); }
+.focus-card.glow-ds::before { background: linear-gradient(135deg, #00d2ff, #0087ff); }
+.focus-card.glow-se::before { background: linear-gradient(135deg, #bd00ff, #7a00ff); }
+.focus-card.glow-be::before { background: linear-gradient(135deg, #ff7e00, #ff4c00); }
+.focus-card.glow-sd::before { background: linear-gradient(135deg, #00ff87, #00b35c); }
+.focus-card.glow-do::before { background: linear-gradient(135deg, #00a0ff, #0066ff); }
+
+.focus-card:hover {
+  transform: translateY(-5px) scale(1.015);
+  border-color: transparent;
+  background-color: rgba(255, 255, 255, 0.45);
+  box-shadow:
+    0 0 0 1.5px rgba(59, 68, 47, 0.22),
+    0 20px 48px rgba(59, 68, 47, 0.14);
+}
+
+
+.focus-card:hover::before {
+  opacity: 1;
+}
+
+.focus-card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.focus-icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 12px;
+  font-size: 1.5rem;
+  border: 1px solid rgba(59, 68, 47, 0.1);
+  transition: all 0.4s ease;
+}
+
+.focus-card:hover .focus-icon-box {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(59, 68, 47, 0.2);
+  transform: scale(1.05);
+}
+
+.focus-title {
+  font-family: "Mona Sans", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #3b442f;
+  margin: 0;
+}
+
+.focus-summary {
+  font-family: "Satoshi", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #3b442f; /* Bold olive summary text */
+  margin: 0;
+  line-height: 1.45;
+}
+
+.focus-desc {
+  font-family: "Satoshi", sans-serif;
+  font-size: 0.88rem;
+  color: #5c664e;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Footer statement styling */
+.focus-footer-box {
+  text-align: center;
+  margin-top: 3.5rem;
+  padding: 2.25rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(59, 68, 47, 0.12);
+  position: relative;
+  z-index: 10;
+}
+
+.focus-footer-text {
+  font-family: "Mona Sans", sans-serif;
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
+  font-style: italic;
+  font-weight: 600;
+  color: #3b442f;
+  line-height: 1.6;
+  margin: 0;
+}
+

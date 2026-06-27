@@ -3065,15 +3065,24 @@ figure {
 .services-image-wraper {
   width: 100%;
   max-width: 30.4375rem;
-  height: 36.25rem;
+  height: 16rem;
   overflow: hidden;
+  background-color: rgba(59, 68, 47, 0.03);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .services-image {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
+  object-fit: contain;
+  width: auto;
+  height: auto;
+  max-width: 65%;
+  max-height: 65%;
 }
+
+
 
 .services-content-wrapper {
   grid-column-gap: 0.75rem;
@@ -3095,8 +3104,10 @@ figure {
 }
 
 .services-bottom-right-content {
-  padding-top: 9.875rem;
+  padding-top: 4rem;
 }
+
+
 
 .number-top-left-content {
   text-align: center;
@@ -3259,20 +3270,21 @@ figure {
 }
 
 .experrience-skill-content._01 {
-  width: 27.6rem;
+  width: 28.26rem;
 }
 
 .experrience-skill-content._02 {
-  width: 25.6rem;
+  width: 26.69rem;
 }
 
 .experrience-skill-content._03 {
-  width: 24rem;
+  width: 26.69rem;
 }
 
 .experrience-skill-content._04 {
-  width: 27rem;
+  width: 25.12rem;
 }
+
 
 .experrience-skill-left-content {
   justify-content: flex-start;
@@ -6306,20 +6318,21 @@ figure {
     width: 18rem;
   }
 
+
   .experrience-skill-content._01 {
-    width: 16.8rem;
+    width: 16.2rem;
   }
 
   .experrience-skill-content._02 {
-    width: 15rem;
+    width: 15.3rem;
   }
 
   .experrience-skill-content._03 {
-    width: 13.5rem;
+    width: 15.3rem;
   }
 
   .experrience-skill-content._04 {
-    width: 16.2rem;
+    width: 14.4rem;
   }
 
   .section-testimonial {
@@ -6847,6 +6860,12 @@ figure {
   background-position: calc(100% - 1.5rem) center;
   transition: all 0.3s ease;
 }
+
+.form-select option {
+  color: #2b2b2b;
+  background-color: #ffffff;
+}
+
 
 .form-select:focus {
   border-color: var(--brand--yellow);

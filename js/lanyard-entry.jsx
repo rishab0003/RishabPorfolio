@@ -9,10 +9,10 @@ if (container) {
   const root = createRoot(container);
   root.render(
     <Lanyard 
-      position={[0, 0, 20]} 
+      position={[0, 0, 13.5]} // Zoomed camera closer to make the card visually bigger
       gravity={[0, -40, 0]} 
-      frontImage="./images/hero-image.png" 
-      backImage="./images/hero-image.png" 
+      frontImage="./assests/idcard.png" // Load the specific idcard.png from assets
+      backImage="./assests/idcard.png" 
       imageFit="cover" 
       lanyardWidth={1.2} 
     />
