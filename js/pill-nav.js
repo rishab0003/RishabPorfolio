@@ -16,7 +16,7 @@ class PillNav {
     // Theme colors matching React Bits props
     this.baseColor = options.baseColor || '#fff';
     this.pillColor = options.pillColor || '#120F17';
-    this.hoveredPillTextColor = options.hoveredPillTextColor || '#120F17';
+    this.hoveredPillTextColor = options.hoveredPillTextColor || '#e8e6eb';
     this.pillTextColor = options.pillTextColor || this.baseColor;
 
     this.onMobileMenuClick = options.onMobileMenuClick;
