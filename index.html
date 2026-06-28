@@ -2270,10 +2270,7 @@
             <div class="container-large">
               <div class="padding-section-medium">
                 
-                <div class="eco-header">
-                  <h2 id="what-i-build-heading">What I Build</h2>
-                  <p>Building intelligent software that combines engineering excellence, scalable architecture, and AI-driven innovation.</p>
-                </div>
+                <div id="what-i-build-reveal-target" class="eco-header"></div>
 
                 <div class="build-bento-grid">
                   
@@ -2446,10 +2443,7 @@
             <div class="container-large">
               <div class="padding-section-medium">
                 
-                <div class="eco-header">
-                  <h2 id="tech-focus-heading">Tech Focus</h2>
-                  <p>My technical interests span multiple domains of software engineering, allowing me to build complete solutions—from intelligent algorithms and scalable backend systems to modern web applications and production-ready deployments.</p>
-                </div>
+                <div id="tech-focus-reveal-target" class="eco-header"></div>
 
                 <div class="focus-grid-container">
                   
@@ -3199,6 +3193,7 @@
     <script src="./js/workspace-ecosystem.js" type="text/javascript"></script>
     <script type="module" src="./js/lanyard-entry.jsx"></script>
     <script type="module" src="./js/grainient-entry.jsx"></script>
+    <script type="module" src="./js/scroll-reveal-entry.jsx"></script>
 
 
     <!-- Permanently remove the Webflow badge from the DOM the instant it appears -->
@@ -3235,21 +3230,15 @@
       })();
     </script>
     <script>
-      // ── Tech Focus: Staggered Scroll-Reveal ──────────────────
+      // ── Tech Focus Cards: Staggered Scroll-Reveal ──────────────────
       (function () {
         const techSection = document.getElementById("tech-focus");
         if (!techSection) return;
 
-        const heading = techSection.querySelector(".eco-header h2");
-        const paragraph = techSection.querySelector(".eco-header p");
         const cards = techSection.querySelectorAll(".focus-card");
+        if (!cards.length) return;
 
-        const revealElements = [];
-        if (heading) revealElements.push(heading);
-        if (paragraph) revealElements.push(paragraph);
-        cards.forEach(card => revealElements.push(card));
-
-        revealElements.forEach((el) => {
+        cards.forEach((el) => {
           el.classList.add("scroll-reveal-item");
         });
 
@@ -3269,7 +3258,7 @@
           }
         );
 
-        revealElements.forEach((el) => revealObserver.observe(el));
+        cards.forEach((el) => revealObserver.observe(el));
       })();
       // ── Testimonial slider navigation ──
       (function () {
@@ -3668,21 +3657,15 @@
         });
       })();
 
-      // ── What I Build: Staggered Dedicated Scroll-Reveal ──
+      // ── What I Build Cards: Staggered Scroll-Reveal ──
       (function () {
         const buildSection = document.getElementById("what-i-build");
         if (!buildSection) return;
 
-        const heading = buildSection.querySelector(".eco-header h2");
-        const paragraph = buildSection.querySelector(".eco-header p");
         const cards = buildSection.querySelectorAll(".build-card");
+        if (!cards.length) return;
 
-        const revealElements = [];
-        if (heading) revealElements.push(heading);
-        if (paragraph) revealElements.push(paragraph);
-        cards.forEach(card => revealElements.push(card));
-
-        revealElements.forEach((el) => {
+        cards.forEach((el) => {
           el.classList.add("build-reveal-item");
         });
 
@@ -3702,7 +3685,7 @@
           }
         );
 
-        revealElements.forEach((el) => revealObserver.observe(el));
+        cards.forEach((el) => revealObserver.observe(el));
       })();
     </script>
   </body>
