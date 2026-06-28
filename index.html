@@ -1326,6 +1326,96 @@
       .button.is-cta:hover {
         box-shadow: 0 0 20px rgba(250, 255, 121, 0.5) !important;
       }
+
+      /* ── All 6 Brand Color Theme Additions ──────────────── */
+      /* 1. Active nav dot indicator */
+      .pill.is-active::after {
+        background: #faff79 !important;
+        box-shadow: 0 0 6px rgba(250, 255, 121, 0.8) !important;
+        width: 5px !important;
+        height: 5px !important;
+      }
+
+      /* 2. Available for work pulsing dot */
+      .availability-dot {
+        background-color: #faff79 !important;
+        box-shadow: 0 0 0 0 rgba(250, 255, 121, 0.7);
+        animation: brand-pulse 2s infinite !important;
+      }
+      @keyframes brand-pulse {
+        0% { box-shadow: 0 0 0 0 rgba(250, 255, 121, 0.7); }
+        70% { box-shadow: 0 0 0 8px rgba(250, 255, 121, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(250, 255, 121, 0); }
+      }
+
+      /* 3. Decorative quote watermark on Engineering Philosophy cards */
+      .testimonial-card {
+        position: relative !important;
+        overflow: hidden !important;
+      }
+      .testimonial-card::before {
+        content: '“';
+        position: absolute;
+        top: -15px;
+        right: 20px;
+        font-size: 9rem;
+        font-family: Georgia, serif;
+        color: #faff79;
+        opacity: 0.25;
+        line-height: 1;
+        pointer-events: none;
+      }
+      .testimonial-card._02::before {
+        color: #3b442f;
+        opacity: 0.15;
+      }
+
+      /* 4. Footer link hover yellow underline */
+      .footer-link {
+        position: relative;
+        transition: color 0.3s ease !important;
+      }
+      .footer-link:hover {
+        color: #3b442f !important;
+      }
+      .footer-link::after {
+        content: '';
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        bottom: -4px;
+        left: 0;
+        background-color: #faff79;
+        transition: width 0.3s ease;
+      }
+      .footer-link:hover::after {
+        width: 100%;
+      }
+
+      /* 5. Global custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #e8e8d1;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #3b442f;
+        border-radius: 5px;
+        border: 2px solid #e8e8d1;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #5c664e;
+      }
+
+      /* 6. Section heading yellow left accent bar */
+      .heading-style-h2,
+      .eco-header h2 {
+        position: relative;
+        padding-left: 0.85rem !important;
+        border-left: 4px solid #faff79 !important;
+      }
     </style>
 
   </head>
