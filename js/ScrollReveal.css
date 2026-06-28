@@ -4,10 +4,13 @@
 }
 
 .scroll-reveal-text {
-  font-size: 1.125rem;
+  font-family: "Satoshi", sans-serif;
+  color: #5c664e;
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  max-width: 44rem;
+  margin: 0;
   line-height: 1.6;
   font-weight: 500;
-  color: #3b442f;
 }
 
 .word {
