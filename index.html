@@ -3400,24 +3400,17 @@
 
         rows.forEach((el) => revealObserver.observe(el));
 
-        // Click event listener for Accordion rows
+        // Hover event listener for Accordion rows
         rows.forEach((row) => {
-          row.addEventListener("click", () => {
-            const isActive = row.classList.contains("active");
-
-            // Close all other rows
+          row.addEventListener("mouseenter", () => {
+            // Close all other rows and open the current one
             rows.forEach((r) => {
               if (r !== row) {
                 r.classList.remove("active");
+              } else {
+                r.classList.add("active");
               }
             });
-
-            // Toggle active status for current row
-            if (isActive) {
-              row.classList.remove("active");
-            } else {
-              row.classList.add("active");
-            }
           });
         });
       })();
