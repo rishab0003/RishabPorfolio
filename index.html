@@ -1484,7 +1484,8 @@
 
       /* 10. Testimonial/Quote Card Premium UI Blending */
       .testimonial-card._01 {
-        background: rgba(255, 255, 255, 0.65) !important;
+        --glow-card-bg: rgba(255, 255, 255, 0.65) !important;
+        background: var(--glow-card-bg) !important;
         backdrop-filter: blur(12px) !important;
         -webkit-backdrop-filter: blur(12px) !important;
         border: 1.5px solid rgba(59, 68, 47, 0.12) !important;
@@ -1494,7 +1495,8 @@
       }
 
       .testimonial-card._02 {
-        background: #fafc96 !important; /* Premium pastel yellow blend */
+        --glow-card-bg: #fafc96 !important; /* Premium pastel yellow blend */
+        background: var(--glow-card-bg) !important;
         border: 1.5px solid rgba(59, 68, 47, 0.15) !important;
         border-radius: 24px !important;
         box-shadow: 0 12px 32px rgba(59, 68, 47, 0.08) !important;
