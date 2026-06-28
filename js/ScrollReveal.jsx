@@ -128,7 +128,7 @@ const ScrollReveal = ({
 
   return (
     <div ref={containerRef} className={`react-scroll-reveal ${containerClassName}`}>
-      <p className={`react-scroll-reveal-text ${textClassName}`}>{splitText}</p>
+      <p className={`scroll-reveal-text ${textClassName}`}>{splitText}</p>
     </div>
   );
 };
