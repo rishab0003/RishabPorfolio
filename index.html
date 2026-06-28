@@ -1047,7 +1047,7 @@
         .number-card {
           padding: 0.875rem 1.25rem !important;
           border-radius: 12px !important;
-          background-color: var(--neutral--white) !important;
+          background-color: transparent !important;
           border: 1px solid var(--neutral--white-300) !important;
           box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02) !important;
           display: flex !important;
@@ -1055,6 +1055,24 @@
           align-items: center !important;
           justify-content: flex-start !important;
           gap: 1rem !important;
+          position: relative !important;
+          overflow: hidden !important;
+        }
+        /* Grainient background mount: fills the parent card */
+        .grainient-bg-mount {
+          position: absolute !important;
+          inset: 0 !important;
+          width: 100% !important;
+          height: 100% !important;
+          z-index: 0 !important;
+          pointer-events: none !important;
+          border-radius: inherit !important;
+        }
+        /* Keep card content above the grainient canvas */
+        .number-card .number-left-content,
+        .number-card .number-right-content {
+          position: relative !important;
+          z-index: 1 !important;
         }
         .number-card .number-left-content {
           flex-shrink: 0;
