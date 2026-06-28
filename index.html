@@ -3458,6 +3458,22 @@
           pillColor: 'var(--neutral--white-200)',       // '#e8e8d1' (beige)
           pillTextColor: 'var(--neutral--black-800)',   // '#3b442f'
         });
+
+        // ── snappier anchor scroll to bypass Webflow slow-scroll delay ──
+        document.addEventListener('click', function (e) {
+          const link = e.target.closest('a[href^="#"]');
+          if (link) {
+            const href = link.getAttribute('href');
+            if (href === '#' || href === '') return;
+            e.preventDefault();
+            e.stopPropagation();
+            const targetElement = document.querySelector(href);
+            if (targetElement) {
+              targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              history.pushState(null, null, href);
+            }
+          }
+        }, true); // Intercept during capture phase
       })();
 
       // ── Premium Toast Notifications & Web3Forms Ajax Submission ───────────
