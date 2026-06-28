@@ -272,19 +272,19 @@
 /* Decorative SVG background illustration */
 .bento-card-decoration {
   position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 45%;
-  height: 65%;
+  bottom: -5px;
+  right: -5px;
+  width: 130px;
+  height: 130px;
   pointer-events: none;
-  opacity: 0.12;
-  color: var(--card-accent, #3b442f);
-  transition: opacity 0.4s ease;
+  opacity: 0.65; /* Let the hand-drawn elements pop with color */
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   overflow: hidden;
 }
 
 .build-card:hover .bento-card-decoration {
-  opacity: 0.22;
+  opacity: 0.95;
+  transform: scale(1.06) rotate(3deg);
 }
 
 .bento-deco-svg {

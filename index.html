@@ -2318,19 +2318,25 @@
                       <span class="build-tech-badge">Flask</span>
                     </div>
                     <div class="bento-card-decoration">
-                      <svg class="bento-deco-svg" viewBox="0 0 200 200" fill="none">
-                        <circle cx="40" cy="100" r="6" fill="currentColor" opacity="0.7"/>
-                        <circle cx="100" cy="50" r="6" fill="currentColor" opacity="0.7"/>
-                        <circle cx="100" cy="150" r="6" fill="currentColor" opacity="0.7"/>
-                        <circle cx="160" cy="100" r="6" fill="currentColor" opacity="0.5"/>
-                        <circle cx="100" cy="100" r="4" fill="currentColor" opacity="0.3"/>
-                        <line x1="40" y1="100" x2="100" y2="50" stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
-                        <line x1="40" y1="100" x2="100" y2="150" stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
-                        <line x1="100" y1="50" x2="160" y2="100" stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
-                        <line x1="100" y1="150" x2="160" y2="100" stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
-                        <line x1="100" y1="50" x2="100" y2="150" stroke="currentColor" stroke-width="1" opacity="0.15" stroke-dasharray="4,4"/>
-                        <circle cx="100" cy="50" r="16" stroke="currentColor" stroke-width="1" opacity="0.1" fill="none"/>
-                        <circle cx="100" cy="150" r="16" stroke="currentColor" stroke-width="1" opacity="0.1" fill="none"/>
+                      <svg class="bento-deco-svg hand-drawn" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Hand-drawn connections -->
+                        <path d="M42 103 C 65 72, 80 68, 98 52" stroke="#3b442f" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="0.5 3" />
+                        <path d="M40 102 C 60 115, 80 130, 97 148" stroke="#3b442f" stroke-width="1.8" stroke-linecap="round" />
+                        <path d="M102 52 C 120 70, 140 85, 158 98" stroke="#3b442f" stroke-width="1.8" stroke-linecap="round" />
+                        <path d="M102 148 C 120 130, 140 115, 158 102" stroke="#3b442f" stroke-width="1.8" stroke-linecap="round" />
+                        <path d="M43 100 L 97 99" stroke="#3b442f" stroke-width="1.5" stroke-linecap="round" />
+                        <path d="M103 99 L 157 100" stroke="#3b442f" stroke-width="1.5" stroke-linecap="round" />
+                        <path d="M99 55 L 99 145" stroke="#3b442f" stroke-width="1.2" stroke-dasharray="3 3" opacity="0.5" />
+                        <!-- Hand-shaded nodes -->
+                        <!-- Input Node -->
+                        <circle cx="40" cy="100" r="10" stroke="#3b442f" stroke-width="2" fill="#fafc96" fill-opacity="0.8" />
+                        <path d="M36 96 C 38 94, 42 94, 44 98" stroke="#3b442f" stroke-width="1" stroke-linecap="round" />
+                        <!-- Hidden Nodes -->
+                        <circle cx="100" cy="50" r="10" stroke="#3b442f" stroke-width="2" fill="#bae6fd" fill-opacity="0.8" />
+                        <circle cx="100" cy="100" r="10" stroke="#3b442f" stroke-width="2" fill="#fafc96" fill-opacity="0.8" />
+                        <circle cx="100" cy="150" r="10" stroke="#3b442f" stroke-width="2" fill="#bae6fd" fill-opacity="0.8" />
+                        <!-- Output Node -->
+                        <circle cx="160" cy="100" r="10" stroke="#3b442f" stroke-width="2" fill="#fafc96" fill-opacity="0.8" />
                       </svg>
                     </div>
                   </div>
@@ -2354,14 +2360,21 @@
                       <span class="build-tech-badge">JWT</span>
                     </div>
                     <div class="bento-card-decoration">
-                      <svg class="bento-deco-svg" viewBox="0 0 200 200" fill="none">
-                        <rect x="20" y="60" width="50" height="35" rx="6" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
-                        <rect x="130" y="60" width="50" height="35" rx="6" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
-                        <rect x="75" y="105" width="50" height="35" rx="6" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
-                        <line x1="70" y1="77" x2="100" y2="105" stroke="currentColor" stroke-width="1.5" opacity="0.25"/>
-                        <line x1="130" y1="77" x2="100" y2="105" stroke="currentColor" stroke-width="1.5" opacity="0.25"/>
-                        <circle cx="100" cy="77" r="5" fill="currentColor" opacity="0.5"/>
-                        <line x1="70" y1="77" x2="130" y2="77" stroke="currentColor" stroke-width="1" opacity="0.2" stroke-dasharray="3,3"/>
+                      <svg class="bento-deco-svg hand-drawn" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Browser outline -->
+                        <path d="M22 45 L178 45 C184 45, 184 45, 184 51 L184 159 C184 165, 184 165, 178 165 L22 165 C16 165, 16 165, 16 159 L16 51 C16 45, 16 45, 22 45 Z" stroke="#3b442f" stroke-width="2" stroke-linejoin="round" />
+                        <!-- Header line -->
+                        <path d="M16 60 L184 60" stroke="#3b442f" stroke-width="1.5" />
+                        <!-- Dots (buttons) -->
+                        <circle cx="28" cy="52" r="3" stroke="#3b442f" stroke-width="1.2" fill="#fecaca" />
+                        <circle cx="38" cy="52" r="3" stroke="#3b442f" stroke-width="1.2" fill="#fed7aa" />
+                        <circle cx="48" cy="52" r="3" stroke="#3b442f" stroke-width="1.2" fill="#dcfce7" />
+                        <!-- Layout blocks -->
+                        <rect x="26" y="70" width="45" height="35" rx="4" stroke="#3b442f" stroke-width="1.5" fill="#fed7aa" fill-opacity="0.4" />
+                        <rect x="129" y="70" width="45" height="35" rx="4" stroke="#3b442f" stroke-width="1.5" fill="#fafc96" fill-opacity="0.4" />
+                        <rect x="26" y="115" width="148" height="40" rx="4" stroke="#3b442f" stroke-width="1.5" fill="#bae6fd" fill-opacity="0.3" />
+                        <!-- Hand-drawn cursor -->
+                        <path d="M110 100 L118 122 L110 118 L102 122 Z" fill="#3b442f" stroke="#3b442f" stroke-width="1" stroke-linejoin="round" transform="rotate(-15 110 110)" />
                       </svg>
                     </div>
                   </div>
@@ -2385,16 +2398,21 @@
                       <span class="build-tech-badge">SQL</span>
                     </div>
                     <div class="bento-card-decoration">
-                      <svg class="bento-deco-svg" viewBox="0 0 200 200" fill="none">
-                        <rect x="30" y="130" width="25" height="40" rx="3" fill="currentColor" opacity="0.2"/>
-                        <rect x="70" y="100" width="25" height="70" rx="3" fill="currentColor" opacity="0.3"/>
-                        <rect x="110" y="75" width="25" height="95" rx="3" fill="currentColor" opacity="0.4"/>
-                        <rect x="150" y="50" width="25" height="120" rx="3" fill="currentColor" opacity="0.5"/>
-                        <polyline points="42,130 82,100 122,75 162,50" stroke="currentColor" stroke-width="2" opacity="0.4" fill="none" stroke-linejoin="round"/>
-                        <circle cx="42" cy="130" r="4" fill="currentColor" opacity="0.6"/>
-                        <circle cx="82" cy="100" r="4" fill="currentColor" opacity="0.6"/>
-                        <circle cx="122" cy="75" r="4" fill="currentColor" opacity="0.6"/>
-                        <circle cx="162" cy="50" r="4" fill="currentColor" opacity="0.6"/>
+                      <svg class="bento-deco-svg hand-drawn" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Chart Axes -->
+                        <path d="M25 40 L25 165 L175 165" stroke="#3b442f" stroke-width="2" stroke-linecap="round" />
+                        <!-- Grid lines -->
+                        <path d="M25 125 L175 125" stroke="#3b442f" stroke-width="1" stroke-dasharray="4 4" opacity="0.3" />
+                        <path d="M25 85 L175 85" stroke="#3b442f" stroke-width="1" stroke-dasharray="4 4" opacity="0.3" />
+                        <!-- Bars -->
+                        <rect x="38" y="110" width="22" height="55" rx="3" stroke="#3b442f" stroke-width="1.8" fill="#d1fae5" fill-opacity="0.8" />
+                        <rect x="72" y="80" width="22" height="85" rx="3" stroke="#3b442f" stroke-width="1.8" fill="#fafc96" fill-opacity="0.6" />
+                        <rect x="106" y="95" width="22" height="70" rx="3" stroke="#3b442f" stroke-width="1.8" fill="#a7f3d0" fill-opacity="0.8" />
+                        <rect x="140" y="55" width="22" height="110" rx="3" stroke="#3b442f" stroke-width="1.8" fill="#fafc96" fill-opacity="0.7" />
+                        <!-- Trend Curve -->
+                        <path d="M49 105 C 80 75, 110 90, 151 45" stroke="#3b442f" stroke-width="2.5" fill="none" stroke-linecap="round" />
+                        <circle cx="49" cy="105" r="4.5" stroke="#3b442f" stroke-width="1.5" fill="#fff" />
+                        <circle cx="151" cy="45" r="4.5" stroke="#3b442f" stroke-width="1.5" fill="#fff" />
                       </svg>
                     </div>
                   </div>
@@ -2416,6 +2434,21 @@
                       <span class="build-tech-badge">Linux</span>
                       <span class="build-tech-badge">Nginx</span>
                     </div>
+                    <div class="bento-card-decoration">
+                      <svg class="bento-deco-svg hand-drawn" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Cloud outline -->
+                        <path d="M50 130 C40 130 30 120 30 110 C30 98 42 90 52 90 C56 75 70 65 85 65 C102 65 116 78 118 95 C126 95 135 102 135 112 C135 122 126 130 116 130 Z" stroke="#3b442f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="#ede9fe" fill-opacity="0.5" />
+                        <!-- Server Cylinder -->
+                        <path d="M120 115 C120 108, 160 108, 160 115 L160 145 C160 152, 120 152, 120 145 Z" stroke="#3b442f" stroke-width="1.8" fill="#ddd6fe" fill-opacity="0.6" />
+                        <path d="M120 115 C120 122, 160 122, 160 115" stroke="#3b442f" stroke-width="1.8" />
+                        <path d="M120 130 C120 137, 160 137, 160 130" stroke="#3b442f" stroke-width="1.5" />
+                        <!-- Server lights -->
+                        <circle cx="132" cy="125" r="2" stroke="#3b442f" stroke-width="1" fill="#a7f3d0" />
+                        <circle cx="132" cy="140" r="2" stroke="#3b442f" stroke-width="1" fill="#fecaca" />
+                        <!-- Hand-drawn Arrow -->
+                        <path d="M75 100 L75 125 M65 115 L75 125 L85 115" stroke="#3b442f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </div>
                   </div>
 
                   <!-- Card 5: Backend (small) -->
@@ -2436,6 +2469,21 @@
                       <span class="build-tech-badge">MongoDB</span>
                       <span class="build-tech-badge">MySQL</span>
                     </div>
+                    <div class="bento-card-decoration">
+                      <svg class="bento-deco-svg hand-drawn" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Main database cylinder -->
+                        <path d="M40 70 C40 60, 100 60, 100 70 L100 140 C100 150, 40 150, 40 140 Z" stroke="#3b442f" stroke-width="2" fill="#fee2e2" fill-opacity="0.6" stroke-linejoin="round" />
+                        <path d="M40 70 C40 80, 100 80, 100 70" stroke="#3b442f" stroke-width="2" />
+                        <path d="M40 93 C40 103, 100 103, 100 93" stroke="#3b442f" stroke-width="1.5" />
+                        <path d="M40 116 C40 126, 100 126, 100 116" stroke="#3b442f" stroke-width="1.5" />
+                        <!-- Small connected database -->
+                        <path d="M120 100 C120 93, 170 93, 170 100 L170 145 C170 152, 120 152, 120 145 Z" stroke="#3b442f" stroke-width="1.8" fill="#fafc96" fill-opacity="0.5" />
+                        <path d="M120 100 C120 107, 170 107, 170 100" stroke="#3b442f" stroke-width="1.8" />
+                        <path d="M120 122 C120 129, 170 129, 170 122" stroke="#3b442f" stroke-width="1.2" />
+                        <!-- Connection pipeline arrow -->
+                        <path d="M100 105 C110 105, 110 122, 120 122" stroke="#3b442f" stroke-width="1.5" stroke-dasharray="3 3" />
+                      </svg>
+                    </div>
                   </div>
 
                   <!-- Card 6: Automation (wide) -->
@@ -2455,6 +2503,23 @@
                       <span class="build-tech-badge">Git</span>
                       <span class="build-tech-badge">Linux</span>
                     </div>
+                    <div class="bento-card-decoration">
+                      <svg class="bento-deco-svg hand-drawn" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Big Gear -->
+                        <circle cx="70" cy="110" r="30" stroke="#3b442f" stroke-width="2" fill="#cffafe" fill-opacity="0.5" />
+                        <circle cx="70" cy="110" r="10" stroke="#3b442f" stroke-width="1.8" fill="#fff" />
+                        <!-- Gear teeth outlines -->
+                        <path d="M70 73 L70 80 M70 140 L70 147 M33 110 L40 110 M100 110 L107 110 M44 84 L49 89 M96 131 L101 136 M44 136 L49 131 M96 89 L101 84" stroke="#3b442f" stroke-width="2.2" stroke-linecap="round" />
+                        <!-- Small Gear -->
+                        <circle cx="130" cy="70" r="20" stroke="#3b442f" stroke-width="1.8" fill="#fafc96" fill-opacity="0.6" />
+                        <circle cx="130" cy="70" r="6" stroke="#3b442f" stroke-width="1.5" fill="#fff" />
+                        <path d="M130 45 L130 50 M130 90 L130 95 M105 70 L110 70 M150 70 L155 70 M112 52 L116 56 M144 84 L148 88" stroke="#3b442f" stroke-width="1.8" stroke-linecap="round" />
+                        <!-- Script page lines -->
+                        <rect x="110" y="115" width="55" height="40" rx="4" stroke="#3b442f" stroke-width="1.5" fill="#fff" />
+                        <path d="M120 127 L155 127 M120 137 L145 137 M120 145 L150 145" stroke="#3b442f" stroke-width="1.2" stroke-linecap="round" />
+                      </svg>
+                    </div>
+                  </div>
 
 
 
