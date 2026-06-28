@@ -1465,21 +1465,21 @@
       /* 9. Native Word-by-Word Scroll Reveal for Section Descriptions */
       .reveal-word {
         display: inline-block;
-        opacity: 0.15;
-        filter: blur(5px);
-        transform: translateY(6px) rotate(2deg);
-        transition: 
-          opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
-          filter 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
-          transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        opacity: 0;
+        filter: blur(8px);
+        transform: translateY(10px);
+        transition:
+          opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+          filter 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+          transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
         will-change: transform, opacity, filter;
-        color: #120f17 !important; /* Force font color to solid black */
+        color: #120f17;
       }
-      
-      .eco-header.is-revealed .reveal-word {
-        opacity: 1;
-        filter: blur(0px);
-        transform: translateY(0px) rotate(0deg);
+
+      .reveal-word.visible {
+        opacity: 1 !important;
+        filter: blur(0px) !important;
+        transform: translateY(0px) !important;
       }
     </style>
 
@@ -3715,25 +3715,40 @@
 
       // ── Section Descriptions Word-by-Word Scroll Reveal ──
       (function () {
-        const descriptions = document.querySelectorAll('#what-i-build .eco-header p, #tech-focus .eco-header p');
-        descriptions.forEach((p) => {
-          const words = p.textContent.trim().split(/\s+/);
-          p.innerHTML = words.map((word, index) => {
-            return `<span class="reveal-word" style="transition-delay: ${index * 30}ms">${word}</span>`;
-          }).join(' ');
+        const paragraphs = document.querySelectorAll(
+          '#what-i-build .eco-header p, #tech-focus .eco-header p'
+        );
 
-          const header = p.closest('.eco-header');
-          if (header) {
-            const observer = new IntersectionObserver((entries) => {
+        paragraphs.forEach((p) => {
+          // Split into word spans
+          const words = p.textContent.trim().split(/\s+/);
+          p.innerHTML = words
+            .map((word) => `<span class="reveal-word">${word}</span>`)
+            .join(' ');
+
+          const spans = p.querySelectorAll('.reveal-word');
+
+          // Observe each word span individually
+          const wordObserver = new IntersectionObserver(
+            (entries) => {
               entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                  header.classList.add('is-revealed');
-                  observer.unobserve(header);
+                  const span = entry.target;
+                  const idx = parseInt(span.dataset.idx, 10);
+                  // Apply stagger delay at the moment of reveal
+                  span.style.transitionDelay = (idx * 40) + 'ms';
+                  span.classList.add('visible');
+                  wordObserver.unobserve(span);
                 }
               });
-            }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
-            observer.observe(header);
-          }
+            },
+            { threshold: 0.2, rootMargin: '0px 0px -30px 0px' }
+          );
+
+          spans.forEach((span, idx) => {
+            span.dataset.idx = idx;
+            wordObserver.observe(span);
+          });
         });
       })();
     </script>
