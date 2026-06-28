@@ -3,9 +3,9 @@
   display: block;
 }
 
-.scroll-reveal-text {
+.react-scroll-reveal-text {
   font-family: "Satoshi", sans-serif;
-  color: #5c664e;
+  color: #120f17 !important;
   font-size: clamp(1rem, 1.6vw, 1.25rem);
   max-width: 44rem;
   margin: 0;

@@ -108,6 +108,9 @@ const ScrollReveal = ({
       );
     }
 
+    // Force GSAP ScrollTrigger to recalculate layout dimensions after React has mounted the component
+    ScrollTrigger.refresh();
+
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
