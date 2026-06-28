@@ -624,7 +624,8 @@
 .focus-row-content {
   display: grid;
   grid-template-rows: 0fr;
-  transition: grid-template-rows 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: grid-template-rows 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden; /* Fixes partial text reveal leakage when collapsed */
 }
 
 .focus-row.active .focus-row-content {
@@ -638,6 +639,18 @@
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: 
+    opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.focus-row.active .focus-row-body-inner {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.08s; /* Slight delay to let accordion start expanding first */
 }
 
 .focus-row-desc {
