@@ -3,7 +3,7 @@
 AI & Full-Stack Developer Portfolio website.
 
 ## 🚀 Live Link
-You can view the live site here: **[https://rishab-porfolio.vercel.app/](https://rishab-porfolio.vercel.app/)**
+You can view the live site here: **[https://rishabmahato.vercel.app/](https://rishabmahato.vercel.app/)**
 
 ## 💻 Tech Stack
 - HTML5 / CSS3 (Vanilla)
