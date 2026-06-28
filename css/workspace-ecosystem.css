@@ -542,15 +542,21 @@
   color: #5c664e;
   margin: 0;
   line-height: 1.4;
-  transition: opacity 0.3s ease;
+  max-height: 40px;
+  opacity: 0.8;
+  transition: 
+    opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    margin 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
 }
 
-/* When active, we hide the teaser to focus on main description */
+/* When active, we fade and collapse the teaser smoothly */
 .focus-row.active .focus-row-teaser {
   opacity: 0;
-  height: 0;
-  overflow: hidden;
+  max-height: 0;
   margin: 0;
+  pointer-events: none;
 }
 
 /* Toggle Icon */
@@ -614,18 +620,20 @@
   background: #fff;
 }
 
-/* Accordion Content Panel */
+/* Accordion Content Panel: CSS Grid auto-height transition */
 .focus-row-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .focus-row.active .focus-row-content {
-  max-height: 500px;
+  grid-template-rows: 1fr;
 }
 
 .focus-row-body-inner {
+  min-height: 0;
+  overflow: hidden;
   padding: 0 2rem 2rem 5.5rem;
   display: flex;
   flex-direction: column;
