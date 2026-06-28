@@ -1425,11 +1425,20 @@
       .scroll-reveal.certificate-card {
         opacity: 0 !important;
         transform: translateY(24px) scale(0.985) !important;
+        will-change: transform, opacity;
+      }
+      
+      /* Apply reveal transition ONLY when the card is not hovered to allow hover styles to run normally */
+      .scroll-reveal:not(:hover),
+      .scroll-reveal.portfolio-card:not(:hover),
+      .scroll-reveal.services-card:not(:hover),
+      .scroll-reveal.build-card:not(:hover),
+      .scroll-reveal.certificate-card:not(:hover) {
         transition: 
           opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
           transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) !important;
-        will-change: transform, opacity;
       }
+
       .scroll-reveal.is-revealed,
       .scroll-reveal.is-revealed.portfolio-card,
       .scroll-reveal.is-revealed.services-card,
@@ -3624,22 +3633,13 @@
         };
 
         const revealObserver = new IntersectionObserver((entries) => {
-          const visibleEntries = entries.filter(e => e.isIntersecting);
-          visibleEntries.forEach((entry, index) => {
+          entries.forEach((entry) => {
             const el = entry.target;
-            
-            // Apply a nice cascading delay for groups of items entering together
-            el.style.transitionDelay = `${index * 60}ms`;
-            
-            el.classList.add('is-revealed');
-            revealObserver.unobserve(el);
-
-            // Clean up reveal styles after 1.5 seconds (fully finished transition) to prevent any conflicts with hover styles
-            setTimeout(() => {
-              el.classList.remove('scroll-reveal');
+            if (entry.isIntersecting) {
+              el.classList.add('is-revealed');
+            } else {
               el.classList.remove('is-revealed');
-              el.style.transitionDelay = '';
-            }, 1500);
+            }
           });
         }, observerOptions);
 
