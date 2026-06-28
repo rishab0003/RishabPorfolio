@@ -463,24 +463,44 @@
 }
 
 .focus-row {
-  background: rgba(255, 255, 255, 0.55);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border: 1.5px solid rgba(59, 68, 47, 0.1);
   border-radius: 20px;
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
 }
 
-.focus-row:hover {
+/* Odd items: Frosted Glass White */
+.focus-row:nth-child(odd) {
+  background: rgba(255, 255, 255, 0.55);
+  border: 1.5px solid rgba(59, 68, 47, 0.1);
+}
+.focus-row:nth-child(odd):hover {
   background: rgba(255, 255, 255, 0.75);
   border-color: var(--row-accent, #3b442f);
   box-shadow: 0 10px 30px rgba(59, 68, 47, 0.08);
 }
-
-.focus-row.active {
+.focus-row:nth-child(odd).active {
   background: rgba(255, 255, 255, 0.85);
+  border-color: var(--row-accent, #3b442f);
+  box-shadow: 
+    0 0 0 1.5px var(--row-accent, #3b442f),
+    0 15px 35px rgba(59, 68, 47, 0.12);
+}
+
+/* Even items: Pastel Yellow Blend */
+.focus-row:nth-child(even) {
+  background: #fafc96;
+  border: 1.5px solid rgba(59, 68, 47, 0.15);
+}
+.focus-row:nth-child(even):hover {
+  background: #fafca5;
+  border-color: var(--row-accent, #3b442f);
+  box-shadow: 0 10px 30px rgba(59, 68, 47, 0.08);
+}
+.focus-row:nth-child(even).active {
+  background: #fafcb4;
   border-color: var(--row-accent, #3b442f);
   box-shadow: 
     0 0 0 1.5px var(--row-accent, #3b442f),
