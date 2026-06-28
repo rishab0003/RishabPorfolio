@@ -680,6 +680,51 @@
         min-height: auto;
         overflow: hidden !important;
         text-decoration: none;
+        background: var(--glow-card-bg) !important;
+        position: relative;
+        padding: 1.5rem !important;
+        box-sizing: border-box !important;
+      }
+
+      /* Hide background image by default, show on hover */
+      .certificate-card .card-art-bg {
+        position: absolute !important;
+        inset: 0 !important;
+        z-index: 0 !important;
+        background-size: cover;
+        background-position: center;
+        filter: none;
+        opacity: 0;
+        pointer-events: none;
+        border-radius: inherit;
+        transition: opacity 0.4s ease;
+      }
+
+      .certificate-card:hover .card-art-bg {
+        opacity: 0.95;
+      }
+
+      /* Frosted glass content panel - only blurs on hover */
+      .certificate-card .card-glass-content {
+        position: relative;
+        z-index: 1;
+        background: transparent;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        border-radius: 14px;
+        padding: 1.25rem;
+        border: 1.5px solid transparent;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        transition: background 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease;
+      }
+
+      .certificate-card:hover .card-glass-content {
+        background: rgba(255, 255, 255, 0.65);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        border-color: rgba(255, 255, 255, 0.6);
       }
 
       .certificate-card.border-glow-card .blog-content-wrapper,
@@ -688,8 +733,8 @@
         flex-direction: column;
         justify-content: space-between;
         min-height: 18rem;
-        padding: 2.25rem !important;
-        border-radius: var(--glow-radius, 24px) !important;
+        padding: 0 !important;
+        border-radius: 0 !important;
         width: 100% !important;
         box-sizing: border-box !important;
         background: transparent !important;
@@ -2778,7 +2823,8 @@
                           class="blog-collection-item w-dyn-item"
                         >
                           <a href="./assests/NPTELCertificate.pdf" target="_blank" class="blog-card certificate-card w-inline-block">
-                            <div class="grainient-bg-mount" data-color1="#fcfcf9" data-color2="#fafc96" data-color3="#fdfdf0" data-time-speed="0.12" data-grain-amount="0.03"></div>
+                            <div class="card-art-bg" style="background-image: url('./assests/anime_samurai.png');"></div>
+                            <div class="card-glass-content">
                             <div class="blog-content-wrapper">
                               <div class="certificate-card-topline">
                                 <div class="blog-category">
@@ -2810,6 +2856,7 @@
                                 </div>
                               </div>
                             </div>
+                            </div>
                           </a>
                         </div>
                         <div
@@ -2817,7 +2864,8 @@
                           class="blog-collection-item w-dyn-item"
                         >
                           <a href="./assests/OracleCertificate.pdf" target="_blank" class="blog-card certificate-card w-inline-block">
-                            <div class="grainient-bg-mount" data-color1="#fcfcf9" data-color2="#d0e1be" data-color3="#e8e8d1" data-time-speed="0.12" data-grain-amount="0.03"></div>
+                            <div class="card-art-bg" style="background-image: url('./assests/anime_torii.png');"></div>
+                            <div class="card-glass-content">
                             <div class="blog-content-wrapper">
                               <div class="certificate-card-topline">
                                 <div class="blog-category">
@@ -2848,6 +2896,7 @@
                                 </div>
                               </div>
                             </div>
+                            </div>
                           </a>
                         </div>
                         <div
@@ -2855,7 +2904,8 @@
                           class="blog-collection-item w-dyn-item"
                         >
                           <a href="./assests/lldCertificate.png" target="_blank" class="blog-card certificate-card w-inline-block">
-                            <div class="grainient-bg-mount" data-color1="#fcfcf9" data-color2="#fafc96" data-color3="#fdfdf0" data-time-speed="0.12" data-grain-amount="0.03"></div>
+                            <div class="card-art-bg" style="background-image: url('./assests/anime_dragon.png');"></div>
+                            <div class="card-glass-content">
                             <div class="blog-content-wrapper">
                               <div class="certificate-card-topline">
                                 <div class="blog-category">
@@ -2886,6 +2936,7 @@
                                 </div>
                               </div>
                             </div>
+                            </div>
                           </a>
                         </div>
                         <div
@@ -2893,7 +2944,8 @@
                           class="blog-collection-item w-dyn-item"
                         >
                           <a href="./assests/DataAnalysisCert.png" target="_blank" class="blog-card certificate-card w-inline-block">
-                            <div class="grainient-bg-mount" data-color1="#fcfcf9" data-color2="#d0e1be" data-color3="#e8e8d1" data-time-speed="0.12" data-grain-amount="0.03"></div>
+                            <div class="card-art-bg" style="background-image: url('./assests/anime_moon.png');"></div>
+                            <div class="card-glass-content">
                             <div class="blog-content-wrapper">
                               <div class="certificate-card-topline">
                                 <div class="blog-category">
@@ -2921,6 +2973,7 @@
                                   Analytics focus
                                 </div>
                               </div>
+                            </div>
                             </div>
                           </a>
                         </div>
