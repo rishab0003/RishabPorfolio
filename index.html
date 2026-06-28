@@ -1421,18 +1421,15 @@
       .scroll-reveal,
       .scroll-reveal.portfolio-card,
       .scroll-reveal.services-card,
-      .scroll-reveal.build-card,
       .scroll-reveal.certificate-card {
         opacity: 0 !important;
         transform: translateY(24px) scale(0.985) !important;
         will-change: transform, opacity;
       }
       
-      /* Apply reveal transition ONLY when the card is not hovered to allow hover styles to run normally */
       .scroll-reveal:not(:hover),
       .scroll-reveal.portfolio-card:not(:hover),
       .scroll-reveal.services-card:not(:hover),
-      .scroll-reveal.build-card:not(:hover),
       .scroll-reveal.certificate-card:not(:hover) {
         transition: 
           opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
@@ -1442,8 +1439,25 @@
       .scroll-reveal.is-revealed,
       .scroll-reveal.is-revealed.portfolio-card,
       .scroll-reveal.is-revealed.services-card,
-      .scroll-reveal.is-revealed.build-card,
       .scroll-reveal.is-revealed.certificate-card {
+        opacity: 1 !important;
+        transform: translateY(0) scale(1) !important;
+      }
+
+      /* 8. Dedicated Scroll Reveal for What I Build section */
+      #what-i-build .build-reveal-item {
+        opacity: 0;
+        transform: translateY(24px) scale(0.985);
+        will-change: transform, opacity;
+      }
+      
+      #what-i-build .build-reveal-item:not(:hover) {
+        transition: 
+          opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+          transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      }
+
+      #what-i-build .build-reveal-item.is-revealed {
         opacity: 1 !important;
         transform: translateY(0) scale(1) !important;
       }
@@ -3223,21 +3237,30 @@
     <script>
       // ── Tech Focus: Staggered Scroll-Reveal ──────────────────
       (function () {
-        const focusCards = document.querySelectorAll(".focus-card");
-        if (!focusCards.length) return;
+        const techSection = document.getElementById("tech-focus");
+        if (!techSection) return;
 
-        focusCards.forEach((card) => {
-          card.classList.add("scroll-reveal-item");
+        const heading = techSection.querySelector(".eco-header h2");
+        const paragraph = techSection.querySelector(".eco-header p");
+        const cards = techSection.querySelectorAll(".focus-card");
+
+        const revealElements = [];
+        if (heading) revealElements.push(heading);
+        if (paragraph) revealElements.push(paragraph);
+        cards.forEach(card => revealElements.push(card));
+
+        revealElements.forEach((el) => {
+          el.classList.add("scroll-reveal-item");
         });
 
         const revealObserver = new IntersectionObserver(
           (entries) => {
             const visibleEntries = entries.filter(e => e.isIntersecting);
             visibleEntries.forEach((entry, index) => {
-              const card = entry.target;
-              card.style.transitionDelay = `${index * 80}ms`;
-              card.classList.add("is-revealed");
-              revealObserver.unobserve(card);
+              const el = entry.target;
+              el.style.transitionDelay = `${index * 80}ms`;
+              el.classList.add("is-revealed");
+              revealObserver.unobserve(el);
             });
           },
           { 
@@ -3246,7 +3269,7 @@
           }
         );
 
-        focusCards.forEach((el) => revealObserver.observe(el));
+        revealElements.forEach((el) => revealObserver.observe(el));
       })();
       // ── Testimonial slider navigation ──
       (function () {
@@ -3605,9 +3628,6 @@
       // ── Dynamic Scroll Reveal System ──
       (function () {
         const revealSelectors = [
-          '.eco-header h2',
-          '.eco-header p',
-          '.build-card',
           '.services-card',
           '.portfolio-card',
           '.testimonial-top-content-wrrapper h2',
@@ -3622,7 +3642,7 @@
         const revealElements = document.querySelectorAll(revealSelectors.join(','));
 
         revealElements.forEach((el) => {
-          if (el.closest('#home') || el.closest('#about')) return;
+          if (el.closest('#home') || el.closest('#about') || el.closest('#what-i-build') || el.closest('#tech-focus')) return;
           el.classList.add('scroll-reveal');
         });
 
@@ -3646,6 +3666,43 @@
         document.querySelectorAll('.scroll-reveal').forEach((el) => {
           revealObserver.observe(el);
         });
+      })();
+
+      // ── What I Build: Staggered Dedicated Scroll-Reveal ──
+      (function () {
+        const buildSection = document.getElementById("what-i-build");
+        if (!buildSection) return;
+
+        const heading = buildSection.querySelector(".eco-header h2");
+        const paragraph = buildSection.querySelector(".eco-header p");
+        const cards = buildSection.querySelectorAll(".build-card");
+
+        const revealElements = [];
+        if (heading) revealElements.push(heading);
+        if (paragraph) revealElements.push(paragraph);
+        cards.forEach(card => revealElements.push(card));
+
+        revealElements.forEach((el) => {
+          el.classList.add("build-reveal-item");
+        });
+
+        const revealObserver = new IntersectionObserver(
+          (entries) => {
+            const visibleEntries = entries.filter(e => e.isIntersecting);
+            visibleEntries.forEach((entry, index) => {
+              const el = entry.target;
+              el.style.transitionDelay = `${index * 80}ms`;
+              el.classList.add("is-revealed");
+              revealObserver.unobserve(el);
+            });
+          },
+          { 
+            threshold: 0.05,
+            rootMargin: "0px 0px -50px 0px"
+          }
+        );
+
+        revealElements.forEach((el) => revealObserver.observe(el));
       })();
     </script>
   </body>
