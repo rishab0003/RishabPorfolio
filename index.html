@@ -3587,7 +3587,7 @@
       (function () {
         const revealSelectors = [
           '.eco-header',
-          '.build-bento-grid',
+          '.build-card',
           '.services-card',
           '.portfolio-card',
           '.testimonial-top-content-wrrapper',
@@ -3611,11 +3611,20 @@
         };
 
         const revealObserver = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('is-revealed');
-              revealObserver.unobserve(entry.target);
+          const visibleEntries = entries.filter(e => e.isIntersecting);
+          visibleEntries.forEach((entry, index) => {
+            const el = entry.target;
+            // Apply a nice cascading delay for groups of items entering together
+            if (
+              el.classList.contains('build-card') || 
+              el.classList.contains('services-card') || 
+              el.classList.contains('portfolio-card') ||
+              el.classList.contains('certificate-card')
+            ) {
+              el.style.transitionDelay = `${index * 80}ms`;
             }
+            el.classList.add('is-revealed');
+            revealObserver.unobserve(el);
           });
         }, observerOptions);
 
