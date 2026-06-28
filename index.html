@@ -1444,7 +1444,7 @@
         transform: translateY(0) scale(1) !important;
       }
 
-      /* 8. Dedicated Scroll Reveal for What I Build section */
+      /* 8. Dedicated Card Reveal for What I Build section */
       #what-i-build .build-reveal-item {
         opacity: 0;
         transform: translateY(24px) scale(0.985);
@@ -1460,6 +1460,26 @@
       #what-i-build .build-reveal-item.is-revealed {
         opacity: 1 !important;
         transform: translateY(0) scale(1) !important;
+      }
+
+      /* 9. Native Word-by-Word Scroll Reveal for Section Descriptions */
+      .reveal-word {
+        display: inline-block;
+        opacity: 0.15;
+        filter: blur(5px);
+        transform: translateY(6px) rotate(2deg);
+        transition: 
+          opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+          filter 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+          transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        will-change: transform, opacity, filter;
+        color: #120f17 !important; /* Force font color to solid black */
+      }
+      
+      .eco-header.is-revealed .reveal-word {
+        opacity: 1;
+        filter: blur(0px);
+        transform: translateY(0px) rotate(0deg);
       }
     </style>
 
@@ -2270,7 +2290,10 @@
             <div class="container-large">
               <div class="padding-section-medium">
                 
-                <div id="what-i-build-reveal-target" class="eco-header"></div>
+                <div class="eco-header">
+                  <h2 id="what-i-build-heading">What I Build</h2>
+                  <p>Building intelligent software that combines engineering excellence, scalable architecture, and AI-driven innovation.</p>
+                </div>
 
                 <div class="build-bento-grid">
                   
@@ -2443,7 +2466,10 @@
             <div class="container-large">
               <div class="padding-section-medium">
                 
-                <div id="tech-focus-reveal-target" class="eco-header"></div>
+                <div class="eco-header">
+                  <h2 id="tech-focus-heading">Tech Focus</h2>
+                  <p>My technical interests span multiple domains of software engineering, allowing me to build complete solutions—from intelligent algorithms and scalable backend systems to modern web applications and production-ready deployments.</p>
+                </div>
 
                 <div class="focus-grid-container">
                   
@@ -3193,7 +3219,6 @@
     <script src="./js/workspace-ecosystem.js" type="text/javascript"></script>
     <script type="module" src="./js/lanyard-entry.jsx"></script>
     <script type="module" src="./js/grainient-entry.jsx"></script>
-    <script type="module" src="./js/scroll-reveal-entry.jsx"></script>
 
 
     <!-- Permanently remove the Webflow badge from the DOM the instant it appears -->
@@ -3686,6 +3711,30 @@
         );
 
         cards.forEach((el) => revealObserver.observe(el));
+      })();
+
+      // ── Section Descriptions Word-by-Word Scroll Reveal ──
+      (function () {
+        const descriptions = document.querySelectorAll('#what-i-build .eco-header p, #tech-focus .eco-header p');
+        descriptions.forEach((p) => {
+          const words = p.textContent.trim().split(/\s+/);
+          p.innerHTML = words.map((word, index) => {
+            return `<span class="reveal-word" style="transition-delay: ${index * 30}ms">${word}</span>`;
+          }).join(' ');
+
+          const header = p.closest('.eco-header');
+          if (header) {
+            const observer = new IntersectionObserver((entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  header.classList.add('is-revealed');
+                  observer.unobserve(header);
+                }
+              });
+            }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+            observer.observe(header);
+          }
+        });
       })();
     </script>
   </body>
