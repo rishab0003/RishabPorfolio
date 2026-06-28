@@ -1466,20 +1466,20 @@
       .reveal-word {
         display: inline-block;
         opacity: 0;
-        filter: blur(8px);
-        transform: translateY(10px);
+        filter: blur(6px);
+        transform: translateY(8px);
         transition:
-          opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
-          filter 0.55s cubic-bezier(0.16, 1, 0.3, 1),
-          transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
-        will-change: transform, opacity, filter;
+          opacity 0.5s ease-out,
+          filter 0.5s ease-out,
+          transform 0.5s ease-out;
+        will-change: opacity, filter, transform;
         color: #120f17;
       }
 
       .reveal-word.visible {
-        opacity: 1 !important;
-        filter: blur(0px) !important;
-        transform: translateY(0px) !important;
+        opacity: 1;
+        filter: blur(0px);
+        transform: translateY(0px);
       }
     </style>
 
@@ -3713,42 +3713,39 @@
         cards.forEach((el) => revealObserver.observe(el));
       })();
 
-      // ── Section Descriptions Word-by-Word Scroll Reveal ──
+      // ── Word-by-Word Scroll Reveal (What I Build & Tech Focus descriptions) ──
       (function () {
-        const paragraphs = document.querySelectorAll(
+        var paragraphs = document.querySelectorAll(
           '#what-i-build .eco-header p, #tech-focus .eco-header p'
         );
 
-        paragraphs.forEach((p) => {
-          // Split into word spans
-          const words = p.textContent.trim().split(/\s+/);
+        paragraphs.forEach(function (p) {
+          // Split text into word spans
+          var words = p.textContent.trim().split(/\s+/);
           p.innerHTML = words
-            .map((word) => `<span class="reveal-word">${word}</span>`)
+            .map(function (w) { return '<span class="reveal-word">' + w + '</span>'; })
             .join(' ');
 
-          const spans = p.querySelectorAll('.reveal-word');
+          var spans = Array.from(p.querySelectorAll('.reveal-word'));
 
-          // Observe each word span individually
-          const wordObserver = new IntersectionObserver(
-            (entries) => {
-              entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                  const span = entry.target;
-                  const idx = parseInt(span.dataset.idx, 10);
-                  // Apply stagger delay at the moment of reveal
-                  span.style.transitionDelay = (idx * 40) + 'ms';
-                  span.classList.add('visible');
-                  wordObserver.unobserve(span);
-                }
-              });
-            },
-            { threshold: 0.2, rootMargin: '0px 0px -30px 0px' }
-          );
+          // Observe the paragraph (large enough target for IntersectionObserver)
+          var triggered = false;
+          var obs = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting && !triggered) {
+                triggered = true;
+                // Stagger each word using setTimeout
+                spans.forEach(function (span, i) {
+                  setTimeout(function () {
+                    span.classList.add('visible');
+                  }, i * 35);
+                });
+                obs.disconnect();
+              }
+            });
+          }, { threshold: 0, rootMargin: '0px 0px -60px 0px' });
 
-          spans.forEach((span, idx) => {
-            span.dataset.idx = idx;
-            wordObserver.observe(span);
-          });
+          obs.observe(p);
         });
       })();
     </script>
