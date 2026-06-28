@@ -1,0 +1,19 @@
+<svg width="130" height="33" viewBox="0 0 130 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Python Snake Logo (two interlinked teardrops) -->
+  <g transform="translate(4, 4) scale(0.85)">
+    <!-- Top snake body (blue snake) -->
+    <path d="M14 4 C9.5 4 7 6 7 9.5 L7 13 L15 13 L15 14 L5 14 L5 18.5 C5 22 7.5 24 12 24 L13 24 L13 20 L11 20 C9.5 20 9 19.3 9 18 L9 14" stroke="#FDFDF0" stroke-width="0" fill="none"/>
+    <!-- Simplified Python logo: two rounded rectangles forming S shape -->
+    <rect x="5" y="4" width="10" height="10" rx="3" fill="#FDFDF0"/>
+    <rect x="9" y="14" width="10" height="10" rx="3" fill="#FDFDF0"/>
+    <!-- Eye dots -->
+    <circle cx="13" cy="8" r="1.2" fill="#3B442F"/>
+    <circle cx="11" cy="20" r="1.2" fill="#3B442F"/>
+    <!-- Connector cut -->
+    <rect x="9" y="11" width="5" height="6" fill="#3B442F"/>
+    <rect x="5" y="14" width="4" height="3" fill="#3B442F"/>
+    <rect x="15" y="11" width="4" height="3" fill="#3B442F"/>
+  </g>
+  <!-- Tech Name -->
+  <text x="36" y="22" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="600" fill="#FDFDF0" letter-spacing="0.5">Python</text>
+</svg>

@@ -1,0 +1,16 @@
+<svg width="110" height="33" viewBox="0 0 110 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- SQL / Database cylinder icon -->
+  <g transform="translate(4, 4) scale(0.85)">
+    <!-- Top ellipse -->
+    <ellipse cx="13" cy="6" rx="9" ry="3" stroke="#FDFDF0" stroke-width="2" fill="none"/>
+    <!-- Body sides -->
+    <line x1="4" y1="6" x2="4" y2="21" stroke="#FDFDF0" stroke-width="2"/>
+    <line x1="22" y1="6" x2="22" y2="21" stroke="#FDFDF0" stroke-width="2"/>
+    <!-- Bottom ellipse -->
+    <ellipse cx="13" cy="21" rx="9" ry="3" stroke="#FDFDF0" stroke-width="2" fill="none"/>
+    <!-- Mid divider lines -->
+    <path d="M4 13 Q13 16 22 13" stroke="#FDFDF0" stroke-width="1.5" fill="none"/>
+  </g>
+  <!-- Tech Name -->
+  <text x="34" y="22" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="600" fill="#FDFDF0" letter-spacing="0.5">SQL</text>
+</svg>
