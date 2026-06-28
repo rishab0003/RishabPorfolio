@@ -23,7 +23,18 @@ const ScrollReveal = ({
   const containerRef = useRef(null);
 
   const splitText = useMemo(() => {
-    const text = typeof children === 'string' ? children : '';
+    let text = '';
+    if (typeof children === 'string') {
+      text = children;
+    } else if (Array.isArray(children)) {
+      text = children.map(child => typeof child === 'string' ? child : '').join('');
+    } else if (children && typeof children.toString === 'function') {
+      text = children.toString();
+    }
+
+    // Clean up spaces and newlines
+    text = text.trim().replace(/\s+/g, ' ');
+
     return text.split(/(\s+)/).map((word, index) => {
       if (word.match(/^\s+$/)) return word;
       return (
@@ -113,8 +124,8 @@ const ScrollReveal = ({
   ]);
 
   return (
-    <div ref={containerRef} className={`scroll-reveal ${containerClassName}`}>
-      <p className={`scroll-reveal-text ${textClassName}`}>{splitText}</p>
+    <div ref={containerRef} className={`react-scroll-reveal ${containerClassName}`}>
+      <p className={`react-scroll-reveal-text ${textClassName}`}>{splitText}</p>
     </div>
   );
 };
