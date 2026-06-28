@@ -117,7 +117,7 @@
 
 /* Card base — accent-colored accent stripe on top */
 .build-card {
-  background: transparent !important; /* Let the grainient show through completely */
+  background: rgba(255, 255, 255, 0.55);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border: 1.5px solid rgba(59, 68, 47, 0.1);
@@ -130,7 +130,8 @@
   overflow: hidden;
   transition:
     transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.4s ease;
 }
 
 .build-card > * {
@@ -151,6 +152,7 @@
 
 .build-card:hover {
   transform: translateY(-4px);
+  background-color: rgba(255, 255, 255, 0.75);
   box-shadow:
     0 0 0 1.5px var(--card-accent, #3b442f),
     0 20px 50px var(--card-glow, rgba(59,68,47,0.12));
