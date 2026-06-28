@@ -417,9 +417,8 @@
           transform 0.25s ease !important;
       }
 
-      /* Number/milestone cards: use grainient canvas as background */
+      /* Number/milestone cards: allow gradient backgrounds + clip overflow */
       .number-card.border-glow-card {
-        background: transparent !important;
         overflow: hidden !important;
       }
 
@@ -1104,17 +1103,24 @@
           position: relative !important;
           overflow: hidden !important;
         }
-        /* Grainient background mount: fills the parent card */
-        .grainient-bg-mount {
-          position: absolute !important;
-          inset: 0 !important;
-          width: 100% !important;
-          height: 100% !important;
-          z-index: 0 !important;
-          pointer-events: none !important;
-          border-radius: inherit !important;
+        /* Direct CSS gradient backgrounds for each milestone card */
+        .number-grid .number-card:nth-child(1) {
+          background: linear-gradient(135deg, #dcfce7 0%, #ccfbf1 60%, #f0fdf4 100%) !important;
+          border-color: rgba(34, 197, 94, 0.2) !important;
         }
-        /* Keep card content above the grainient canvas */
+        .number-grid .number-card:nth-child(2) {
+          background: linear-gradient(135deg, #e0f2fe 0%, #c7d2fe 60%, #f0f9ff 100%) !important;
+          border-color: rgba(99, 102, 241, 0.2) !important;
+        }
+        .number-grid .number-card:nth-child(3) {
+          background: linear-gradient(135deg, #f3e8ff 0%, #fbcfe8 60%, #faf5ff 100%) !important;
+          border-color: rgba(168, 85, 247, 0.2) !important;
+        }
+        .number-grid .number-card:nth-child(4) {
+          background: linear-gradient(135deg, #ffedd5 0%, #fef9c3 60%, #fff7ed 100%) !important;
+          border-color: rgba(251, 146, 60, 0.2) !important;
+        }
+        /* Keep card content layered properly */
         .number-card .number-left-content,
         .number-card .number-right-content {
           position: relative !important;
@@ -1165,9 +1171,26 @@
         background: transparent !important;
       }
 
-      .number-card {
-        background-color: transparent !important;
-        background: transparent !important;
+      /* Milestone card gradient backgrounds — one per card */
+      .number-grid .number-card:nth-child(1),
+      .number-grid .number-card:nth-child(1).border-glow-card {
+        background: linear-gradient(135deg, #dcfce7 0%, #ccfbf1 60%, #f0fdf4 100%) !important;
+        border-color: rgba(34, 197, 94, 0.25) !important;
+      }
+      .number-grid .number-card:nth-child(2),
+      .number-grid .number-card:nth-child(2).border-glow-card {
+        background: linear-gradient(135deg, #e0f2fe 0%, #c7d2fe 60%, #f0f9ff 100%) !important;
+        border-color: rgba(99, 102, 241, 0.25) !important;
+      }
+      .number-grid .number-card:nth-child(3),
+      .number-grid .number-card:nth-child(3).border-glow-card {
+        background: linear-gradient(135deg, #f3e8ff 0%, #fbcfe8 60%, #faf5ff 100%) !important;
+        border-color: rgba(168, 85, 247, 0.25) !important;
+      }
+      .number-grid .number-card:nth-child(4),
+      .number-grid .number-card:nth-child(4).border-glow-card {
+        background: linear-gradient(135deg, #ffedd5 0%, #fef9c3 60%, #fff7ed 100%) !important;
+        border-color: rgba(251, 146, 60, 0.25) !important;
       }
 
       .grainient-bg-mount {
