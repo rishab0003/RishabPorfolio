@@ -1418,13 +1418,21 @@
       }
 
       /* 7. Global Scroll Reveal Animations */
-      .scroll-reveal {
+      .scroll-reveal,
+      .scroll-reveal.portfolio-card,
+      .scroll-reveal.services-card,
+      .scroll-reveal.build-card,
+      .scroll-reveal.certificate-card {
         opacity: 0 !important;
         transform: translateY(30px) !important;
         transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1) !important;
         will-change: transform, opacity;
       }
-      .scroll-reveal.is-revealed {
+      .scroll-reveal.is-revealed,
+      .scroll-reveal.is-revealed.portfolio-card,
+      .scroll-reveal.is-revealed.services-card,
+      .scroll-reveal.is-revealed.build-card,
+      .scroll-reveal.is-revealed.certificate-card {
         opacity: 1 !important;
         transform: translateY(0) !important;
       }
@@ -3586,14 +3594,17 @@
       // ── Dynamic Scroll Reveal System ──
       (function () {
         const revealSelectors = [
-          '.eco-header',
+          '.eco-header h2',
+          '.eco-header p',
           '.build-card',
           '.services-card',
           '.portfolio-card',
-          '.testimonial-top-content-wrrapper',
+          '.testimonial-top-content-wrrapper h2',
+          '.testimonial-top-content-wrrapper p',
           '.testimonial-slider',
           '.certificate-card',
-          '.contact-header-block',
+          '.contact-header-block h2',
+          '.contact-header-block p',
           '.contact-content-grid'
         ];
 
@@ -3614,17 +3625,28 @@
           const visibleEntries = entries.filter(e => e.isIntersecting);
           visibleEntries.forEach((entry, index) => {
             const el = entry.target;
+            
             // Apply a nice cascading delay for groups of items entering together
-            if (
-              el.classList.contains('build-card') || 
-              el.classList.contains('services-card') || 
-              el.classList.contains('portfolio-card') ||
-              el.classList.contains('certificate-card')
-            ) {
-              el.style.transitionDelay = `${index * 80}ms`;
-            }
+            el.style.transitionDelay = `${index * 60}ms`;
+            
             el.classList.add('is-revealed');
             revealObserver.unobserve(el);
+
+            // Clean up reveal styles after transition ends to prevent any conflicts with hover styles
+            el.addEventListener('transitionend', function handler(e) {
+              // Ensure we only trigger when the main animation attributes finish transitioning
+              if (e.propertyName === 'opacity' || e.propertyName === 'transform') {
+                el.classList.remove('scroll-reveal');
+                el.style.transitionDelay = '';
+                el.removeEventListener('transitionend', handler);
+              }
+            });
+
+            // Fallback cleanup in case transitionend does not fire
+            setTimeout(() => {
+              el.classList.remove('scroll-reveal');
+              el.style.transitionDelay = '';
+            }, 1200);
           });
         }, observerOptions);
 
